@@ -1,6 +1,7 @@
 package fr.pe.polygone.dbreaderservice.controller;
 
 import fr.pe.polygone.dbreaderservice.entity.Message;
+import fr.pe.polygone.dbreaderservice.exception.EntityNotFoundException;
 import fr.pe.polygone.dbreaderservice.repository.MessageRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,4 +24,16 @@ public class MessageController {
         logger.info("Message {} created",message);
         return messageRepository.save(message);
     }
+
+    @GetMapping("/{id}")
+    public Message findById(@PathVariable String id) throws EntityNotFoundException {
+        return messageRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException(id+" non trouvé"));
+    }
+
+    @GetMapping
+    public Iterable<Message> listAll() {
+        return messageRepository.findAll();
+    }
+
 }
