@@ -6,12 +6,12 @@ Work example with Redis Repositories, convert and store domain objects ind Redis
 
 Requirements
 *********************
+| Tools             | Version |
+|-------------------|---------|
+| Redis server      | >= 2.8  |
+| Spring Data Redis | >= 2.O  |
+| Spring Boot       | 2.1.3   |
+| Jedis             | 2.9     |
+| java              | 1.8     |
 
-|  Tools    |     Version    
-| ------------- |: -------------: | 
-| Redis server      |        >= 2.8       |  
-| Spring Data Redis         |        >= 2.O        | 
-| Spring Boot     |        2.1.3        |  
-| Jedis     |        2.9       |   
-| java     |        1.8        |   
 
