@@ -12,6 +12,6 @@ Requirements
 | Spring Data Redis | >= 2.O  |
 | Spring Boot       | 2.1.3   |
 | Jedis             | 2.9     |
-| java              | 1.8     |
+| Java              | 1.8     |
 
 
