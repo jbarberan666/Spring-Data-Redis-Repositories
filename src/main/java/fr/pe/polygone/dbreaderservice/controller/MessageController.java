@@ -3,6 +3,7 @@ package fr.pe.polygone.dbreaderservice.controller;
 import fr.pe.polygone.dbreaderservice.entity.Message;
 import fr.pe.polygone.dbreaderservice.exception.EntityNotFoundException;
 import fr.pe.polygone.dbreaderservice.repository.MessageRepository;
+import fr.pe.polygone.dbreaderservice.service.MessageService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,24 +17,22 @@ public class MessageController {
     private Logger logger = LoggerFactory.getLogger(MessageController.class);
 
     @Autowired
-    private MessageRepository messageRepository;
+    private MessageService messageService;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Message create (@RequestBody Message message){
-        logger.info("Message {} created",message);
-        return messageRepository.save(message);
+    public Message createMessage (@RequestBody Message message){
+       return messageService.saveMessage(message);
     }
 
     @GetMapping("/{id}")
-    public Message findById(@PathVariable String id) throws EntityNotFoundException {
-        return messageRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException(id+" non trouvé"));
+    public Message findMessageById(@PathVariable String id) throws EntityNotFoundException {
+       return messageService.findById(id);
     }
 
     @GetMapping
-    public Iterable<Message> listAll() {
-        return messageRepository.findAll();
+    public Iterable<Message> listAllMessage() {
+        return messageService.findAll();
     }
 
 }
