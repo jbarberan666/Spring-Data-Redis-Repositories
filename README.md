@@ -1,6 +1,6 @@
 # Spring-Data-Redis-Repositories
 
-Work example with Redis Repositories, convert and store domain objects ind Redis Hashes (ie https://redis.io/topics/data-types).
+Work example with Redis Repositories, convert and store domain objects in Redis Hashes (ie https://redis.io/topics/data-types).
 
 
 
